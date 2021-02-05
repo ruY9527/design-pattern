@@ -4,7 +4,7 @@ package com.iyang.factory.design.simple;
  * Created by Yang on 2021/2/4 22:20
  */
 
-public class Square implements Shape {
+public class Square extends Shape {
 
     @Override
     public void draw() {

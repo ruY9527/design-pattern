@@ -5,7 +5,7 @@ package com.iyang.factory.design.simple;
  */
 
 
-public class Rectangle implements Shape {
+public class Rectangle extends Shape {
 
     public Rectangle(){
         System.out.println("Rectangle中的无参数构造函数");
