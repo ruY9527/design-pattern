@@ -12,9 +12,13 @@ public class LazySafeSingleton {
 
     private LazySafeSingleton(){}
 
-    public static synchronized LazySafeSingleton getInstance(){
+    public static /*synchronized*/ LazySafeSingleton getInstance(){
         if(instance == null){
-            instance = new LazySafeSingleton();
+            synchronized (LazySafeSingleton.class){
+                if(instance == null){
+                    instance = new LazySafeSingleton();
+                }
+            }
         }
         return instance;
     }

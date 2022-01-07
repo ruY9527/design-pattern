@@ -9,20 +9,34 @@ package com.iyang.action.design.templates;
 
 public abstract class Game {
 
+    public void commonStart(){
+        System.out.println("通用开始方法");
+    }
+
+    public void commonEnd(){
+        System.out.println("通用结束方法");
+    }
+
     abstract void initialize();
 
     abstract void startPlay();
 
     abstract void endPlay();
 
+    /**
+     * 方法还可以预留钩子来进行实现
+     */
     public final void play(){
+        commonStart();
+
         // 初始化
         initialize();
         // 开始游戏
         startPlay();
         // 结束游戏
-        play();
+        endPlay();
 
+        commonEnd();
     }
 
 }

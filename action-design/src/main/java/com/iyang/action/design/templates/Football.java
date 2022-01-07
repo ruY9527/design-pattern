@@ -19,4 +19,10 @@ public class Football extends Game {
     void endPlay() {
         System.out.println("Football 结束游戏操作");
     }
+
+    @Override
+    public void commonStart() {
+        // super.commonStart();
+        System.out.println("添加多的一个template方法编写");
+    }
 }

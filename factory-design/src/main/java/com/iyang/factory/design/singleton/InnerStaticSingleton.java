@@ -6,7 +6,14 @@ package com.iyang.factory.design.singleton;
 
 public class InnerStaticSingleton {
 
-    private InnerStaticSingleton () {}
+    private InnerStaticSingleton () {
+
+        // 防止使用反射对其进破坏.
+        if(InnerStaticInnerHolder.INSTANCE != null){
+            throw new RuntimeException("不可以new第二个实例对象");
+        }
+
+    }
 
     public static final InnerStaticSingleton getInstance(){
         return InnerStaticInnerHolder.INSTANCE;
