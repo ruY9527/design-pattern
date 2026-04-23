@@ -1,34 +1,59 @@
 package com.iyang.factory.design.simple;
 
 /**
- * Created by Yang on 2021/2/4 22:25
+ * 形状枚举 - 简单工厂模式的枚举实现
+ * <p>
+ * 使用枚举实现工厂模式的优势：
+ * 1. 类型安全：编译时检查
+ * 2. 单例保证：每个枚举实例只有一个
+ * 3. 避免反射攻击：枚举类型不能通过反射创建
+ * </p>
  *
- * 使用枚举来代理工厂的生产.
+ * @author Yang
+ * @since 2021/2/4
  */
-
 public enum ShapeEnum {
-    CIRCLESHAPE("circle",new Circle(),Circle.class.toString()),RECTANGLE("rectangel",new Rectangle());
+    /**
+     * 圆形
+     */
+    CIRCLE(Circle.class),
 
-    private String type;
-    private Shape shape;
-    private String clazz;
+    /**
+     * 矩形
+     */
+    RECTANGLE(Rectangle.class),
 
-    ShapeEnum(String type, Shape shape) {
-        this.type = type;
-        this.shape = shape;
+    /**
+     * 正方形
+     */
+    SQUARE(Square.class);
+
+    private final Class<? extends Shape> shapeClass;
+
+    ShapeEnum(Class<? extends Shape> shapeClass) {
+        this.shapeClass = shapeClass;
     }
 
-    ShapeEnum(String type, Shape shape, String clazz) {
-        this.type = type;
-        this.shape = shape;
-        this.clazz = clazz;
+    /**
+     * 创建形状实例
+     *
+     * @return 形状对象
+     */
+    public Shape createShape() {
+        try {
+            return shapeClass.getDeclaredConstructor().newInstance();
+        } catch (Exception e) {
+            throw new RuntimeException("创建形状失败: " + shapeClass.getSimpleName(), e);
+        }
     }
 
+    /**
+     * 演示入口
+     */
     public static void main(String[] args) {
-
-        Shape shape = ShapeEnum.CIRCLESHAPE.shape;
-        Shape shape1 = ShapeEnum.CIRCLESHAPE.shape;
-
+        Shape circle1 = ShapeEnum.CIRCLE.createShape();
+        Shape circle2 = ShapeEnum.CIRCLE.createShape();
+        circle1.draw();
+        circle2.draw();
     }
-
 }

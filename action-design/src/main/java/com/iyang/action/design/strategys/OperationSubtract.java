@@ -1,14 +1,19 @@
 package com.iyang.action.design.strategys;
 
 /**
- * Created by Yang on 2021/2/9 23:20
+ * 减法策略
+ * <p>
+ * 实现减法运算的具体策略类
+ * </p>
+ *
+ * @author Yang
+ * @since 2021/2/9
  */
-
 public class OperationSubtract implements Strategy {
 
     @Override
-    public int deOperation(int num1, int num2) {
-        return num1- num2;
+    public int doOperation(int num1, int num2) {
+        return num1 - num2;
     }
 
 }

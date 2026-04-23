@@ -1,17 +1,19 @@
 package com.iyang.factory.design.simple;
 
 /**
- * Created by Yang on 2021/2/4 22:21
+ * 圆形 - 简单工厂模式具体产品
+ *
+ * @author Yang
+ * @since 2021/2/4
  */
-
 public class Circle extends Shape {
 
-    public Circle(){
-        System.out.println("Circle中的无参数构造函数调用次数");
+    public Circle() {
+        System.out.println("创建圆形对象");
     }
 
     @Override
     public void draw() {
-        System.out.println("Circle中调用draw方法");
+        System.out.println("绘制圆形: Circle.draw()");
     }
 }

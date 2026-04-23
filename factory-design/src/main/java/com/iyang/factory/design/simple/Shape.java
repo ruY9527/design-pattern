@@ -1,25 +1,33 @@
 package com.iyang.factory.design.simple;
 
 /**
- * Created by Yang on 2021/2/4 22:19
+ * 形状抽象类 - 简单工厂模式
+ * <p>
+ * 简单工厂模式核心：
+ * 定义产品类的公共接口，具体产品类实现此接口。
+ * </p>
+ *
+ * @author Yang
+ * @since 2021/2/4
  */
-
 public abstract class Shape implements Cloneable {
 
     /**
-     * 定义方法.
+     * 绘制形状
      */
-    abstract void draw();
+    public abstract void draw();
 
+    /**
+     * 克隆形状对象（原型模式支持）
+     *
+     * @return 克隆后的形状对象
+     */
     @Override
-    public Object clone(){
-        Object clone = null;
+    public Object clone() {
         try {
-            clone = super.clone();
-        }catch (Exception e){
-            e.printStackTrace();
+            return super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException("克隆失败: " + e.getMessage(), e);
         }
-        return clone;
     }
-
 }

@@ -1,18 +1,19 @@
 package com.iyang.factory.design.simple;
 
 /**
- * Created by Yang on 2021/2/4 22:19
+ * 矩形 - 简单工厂模式具体产品
+ *
+ * @author Yang
+ * @since 2021/2/4
  */
-
-
 public class Rectangle extends Shape {
 
-    public Rectangle(){
-        System.out.println("Rectangle中的无参数构造函数");
+    public Rectangle() {
+        System.out.println("创建矩形对象");
     }
 
     @Override
     public void draw() {
-        System.out.println("调用Rectangle中draw方法");
+        System.out.println("绘制矩形: Rectangle.draw()");
     }
 }

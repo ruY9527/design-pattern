@@ -1,15 +1,15 @@
 package com.iyang.action.design.adapters;
 
-/*****
- *  * ( •_•)                          (•_• )
- *    ( ง )ง                          ୧( ୧ )
- *    /︶\                              /︶\
- * @author : LuoHong
- * @date: 2022/1/6
- * @ProjectName: factory-design
- * @desc:
- **/
-
+/**
+ * 新浪微博登录适配器
+ * <p>
+ * 将新浪微博登录接口适配到统一的登录系统
+ * </p>
+ *
+ * @author LuoHong
+ * @author Yang (optimized)
+ * @since 2022/1/6
+ */
 public class LoginForSinaAdapter implements LoginAdapter {
 
     @Override
@@ -19,6 +19,8 @@ public class LoginForSinaAdapter implements LoginAdapter {
 
     @Override
     public Object login(String id, Object adapter) {
-        return null;
+        // 模拟新浪微博登录逻辑
+        System.out.println("新浪微博登录成功，用户ID: " + id);
+        return "SINA_USER_" + id;
     }
 }
